@@ -1,0 +1,21 @@
+<div class="weather-container">
+    <h2>Weather Forecast</h2>
+
+    <a routerLink="/">Go back</a>
+
+    <ng-container
+    *ngIf="labels.length > 0 && values.length > 0 && code; else loading"
+  >
+    <p>Temperature unit: {{temperatureUnit}}</p>
+    <app-line-chart
+      [xAxis]="labels"
+      [yAxis]="values"
+      [title]="code"
+      [extraData]="extraData"
+    ></app-line-chart>
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Loading forecast information</p>
+  </ng-template>
+</div>
